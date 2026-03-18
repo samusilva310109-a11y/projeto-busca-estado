@@ -5,12 +5,14 @@ const listaDeEstados = estadosCidades.listaDeEstados;
 
 const getListaEstados = () => {
     let lista = {
-        uf: [], 
+        uf: [],
+        quantidade: listaDeEstados.estados.length
     }
 
     listaDeEstados.estados.forEach(uf => {
         lista.uf.push(uf.sigla)
     })
+
     return lista
 }
 
