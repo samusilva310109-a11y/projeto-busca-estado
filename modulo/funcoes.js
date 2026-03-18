@@ -16,8 +16,22 @@ const getListaEstados = () => {
     return lista
 }
 
+const getDadosEstados = (siglaUf) => {
 
-console.log(getListaEstados());
+
+    listaDeEstados.estados.forEach(item => {
+        if (String(siglaUf).toUpperCase() == String(item.sigla).toUpperCase()) {
+            console.log(item);
+            
+        }
+    })
+
+}
+
+getDadosEstados("sp")
+
+
+
 
 
 
