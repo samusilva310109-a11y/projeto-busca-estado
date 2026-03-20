@@ -27,6 +27,8 @@ const getDadosEstados = (siglaUf) => {
                 capital: item.capital,
                 regiao: item.regiao
             }
+        }else{
+            return false
         }
     })
 
@@ -44,6 +46,8 @@ const getCapitalEstado = (siglaUf) => {
                 descricao: item.nome,
                 capital: item.capital
             }
+        }else{
+            return false
         }
     })
 
@@ -60,15 +64,44 @@ const getEstadosRegiao = (regiao) => {
     listaDeEstados.estados.forEach(estado => {
         if (String(regiao).toUpperCase() == String(estado.regiao).toUpperCase()) {
             estadosRegioes.estados.push({uf: estado.nome, descricao: estado.nome})
+        }else{
+            return false
         }
     })
 
     return estadosRegioes
 }
 
+const getCapitalPais = () => {
+    
+    let pais = {
+        capitais: []
+    }
+
+    listaDeEstados.estados.forEach(estados => {
+
+      if (estados.capital_pais != undefined) {
+        pais.capitais.push({
+            capital_atual: estados.capital_pais.capital,
+            uf: estados.regiao,
+            descricao: estados.nome,
+            capital: estados.capital,
+            regiao: estados.regiao,
+            capital_pais_ano_inicio: estados.capital_pais.ano_inicio,
+            capital_pais_ano_fim: estados.capital_pais.ano_fim
+        })
+      }else{
+        return false
+      }
+    })
+
+    return pais
+}
+
 
 // console.log(listaDeEstados)
-console.log(getEstadosRegiao("sul"));
+console.log(getCapitalPais());
+ 
 
 
 
