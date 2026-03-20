@@ -34,9 +34,26 @@ const getDadosEstados = (siglaUf) => {
 
 }
 
+const getCapitalEstado = (siglaUf) => {
+    let dados = {}
+
+    listaDeEstados.estados.forEach(item => {
+        if (String(siglaUf).toUpperCase() == String(item.sigla).toUpperCase()) {
+            dados = {
+                uf: item.sigla,
+                descricao: item.nome,
+                capital: item.capital
+            }
+        }
+    })
+
+    return dados
+
+}
 
 
-console.log(getDadosEstados("ac"));
+
+console.log(getCapitalEstado("ac"));
 
 
 
