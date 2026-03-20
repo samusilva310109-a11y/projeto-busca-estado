@@ -1,5 +1,10 @@
-const estadosCidades = require('./estados_cidades')
+/******************************************************************
+* Objetivo: criar funções que poderão serem utilizadas por uma API
+* Data: 20/03/2026
+* Autor: Samuel  Silva Moreira Dos Santos  
+* ****************************************************************/
 
+const estadosCidades = require('./estados_cidades')
 const listaDeEstados = estadosCidades.listaDeEstados;
 
 
@@ -124,17 +129,8 @@ const getCidades = (siglaUf) => {
         }    
     })
     
-    return listaCidades
+    if(Object.keys(listaCidades).length == 0)
+        return false
+    else
+        return listaCidades
 }
-
-
-// console.log(listaDeEstados)
-console.log(getEstadosRegiao("sdd"));
- 
-
-
-
-
-
-
-
