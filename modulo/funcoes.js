@@ -51,9 +51,24 @@ const getCapitalEstado = (siglaUf) => {
 
 }
 
+const getEstadosRegiao = (regiao) => {
+    let estadosRegioes = {
+        regiao: String(regiao).toUpperCase(),
+        estados: []
+    }
+
+    listaDeEstados.estados.forEach(estado => {
+        if (String(regiao).toUpperCase() == String(estado.regiao).toUpperCase()) {
+            estadosRegioes.estados.push({uf: estado.nome, descricao: estado.nome})
+        }
+    })
+
+    return estadosRegioes
+}
 
 
-console.log(getCapitalEstado("ac"));
+// console.log(listaDeEstados)
+console.log(getEstadosRegiao("sul"));
 
 
 
