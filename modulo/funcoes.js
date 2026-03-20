@@ -63,7 +63,7 @@ const getEstadosRegiao = (regiao) => {
 
     listaDeEstados.estados.forEach(estado => {
         if (String(regiao).toUpperCase() == String(estado.regiao).toUpperCase()) {
-            estadosRegioes.estados.push({uf: estado.nome, descricao: estado.nome})
+            estadosRegioes.estados.push({uf: estado.sigla, descricao: estado.nome})
         }else{
             return false
         }
