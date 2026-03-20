@@ -73,7 +73,7 @@ const getEstadosRegiao = (regiao) => {
 }
 
 const getCapitalPais = () => {
-    
+
     let pais = {
         capitais: []
     }
@@ -98,9 +98,34 @@ const getCapitalPais = () => {
     return pais
 }
 
+const getCidades = (siglaUf) => {
+
+    let listaCidades = {}
+
+    listaDeEstados.estados.forEach(estado => {
+        if (String(siglaUf).toUpperCase() == String(estado.sigla).toUpperCase()){
+            
+            listaCidades = {
+                uf: estado.sigla,
+                descricao: estado.nome,
+                quantidade_cidades: estado.cidades.length,
+                cidade:[],
+            }
+            estado.cidades.forEach(cidade=>{
+               listaCidades.cidade.push(cidade.nome) 
+            })
+         
+        }else{
+            return false
+        }     
+    })
+    
+    return listaCidades
+}
+
 
 // console.log(listaDeEstados)
-console.log(getCapitalPais());
+console.log(getCidades("a"));
  
 
 
