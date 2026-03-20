@@ -13,7 +13,10 @@ const getListaEstados = () => {
         lista.uf.push(uf.sigla)
     })
 
-    return lista
+    if(Object.keys(lista).length == 0)
+        return false
+    else
+        return lista
 }
 
 const getDadosEstados = (siglaUf) => {
@@ -27,13 +30,13 @@ const getDadosEstados = (siglaUf) => {
                 capital: item.capital,
                 regiao: item.regiao
             }
-        }else{
-            return false
         }
     })
 
-    return dados
-
+    if(Object.keys(dados).length == 0)
+        return false
+    else
+        return dados
 }
 
 const getCapitalEstado = (siglaUf) => {
@@ -46,12 +49,13 @@ const getCapitalEstado = (siglaUf) => {
                 descricao: item.nome,
                 capital: item.capital
             }
-        }else{
-            return false
         }
     })
 
-    return dados
+    if(Object.keys(dados).length == 0)
+        return false
+    else
+        return dados
 
 }
 
@@ -64,12 +68,13 @@ const getEstadosRegiao = (regiao) => {
     listaDeEstados.estados.forEach(estado => {
         if (String(regiao).toUpperCase() == String(estado.regiao).toUpperCase()) {
             estadosRegioes.estados.push({uf: estado.sigla, descricao: estado.nome})
-        }else{
-            return false
         }
     })
 
-    return estadosRegioes
+    if(estadosRegioes.estados.length == 0)
+        return false
+    else
+        return estadosRegioes
 }
 
 const getCapitalPais = () => {
@@ -90,12 +95,13 @@ const getCapitalPais = () => {
             capital_pais_ano_inicio: estados.capital_pais.ano_inicio,
             capital_pais_ano_fim: estados.capital_pais.ano_fim
         })
-      }else{
-        return false
       }
     })
 
-    return pais
+    if(pais.capitais.length == 0)
+        return false
+    else
+        return pais
 }
 
 const getCidades = (siglaUf) => {
@@ -115,9 +121,7 @@ const getCidades = (siglaUf) => {
                listaCidades.cidade.push(cidade.nome) 
             })
          
-        }else{
-            return false
-        }     
+        }    
     })
     
     return listaCidades
@@ -125,7 +129,7 @@ const getCidades = (siglaUf) => {
 
 
 // console.log(listaDeEstados)
-console.log(getCidades("a"));
+console.log(getEstadosRegiao("sdd"));
  
 
 
